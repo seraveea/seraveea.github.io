@@ -3,29 +3,35 @@
   <head>
     <meta charset="utf-8">
     <title>HAO's page!</title>
-    <!-- <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>Welcome to Hao Wang's page</h1>
-    <h2>I am a current master student of ECE in Georgia Tech</h2>
-    <p id="add"><em>Geek, Gamer and Guitar palyer</em></p>
-    <h3>Looking for research oppotunity this summer!</h3>
-    <p>I am interested in <strong><em>machine learning, deep learning, game AI</em></strong> and <strong><em>digital image processing</em></strong>.</p>
+    <nav class ="site-header sticky-top py-1" id ="navv">
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2 d-none d-md-inline-block" href="us.html"><p id="tag">Undergraduate reasearch</p></a>
+        <a class="py-2 d-none d-md-inline-block" href="dip.html"><p id="tag">Image processing</p></a>
+        <a class="py-2 d-none d-md-inline-block" href="data.html"><p id="tag">Data Analysis</p></a>
+      </div>
 
-    <p class = "div">
-      There are some projects reports, click the link and explore! <br>
-      <!-- <p>Undergraduate period</p> -->
-      Undergraduate period:
-      <a href="bs_paper.pdf">My bachelor graduation thesis (only Chinese version provided)</a><br>
-      Last year:<br>
-      <a href="dip_paper.pdf">Combination of image compression and contrast enhancement in aerospace application(gatech dip project)</a><br>
-      <a href="Is_Lyft_really_cheaper_than_taxi.pdf">Is Lyft really cheaper than taxi?(gatech data and visual analytics project)</a> <br>
-      There is also a CV here!
-      <a href="cv.pdf">Click me to see my cv</a>
-    </p>
-    <p>If you are interested in my experience, welcome to contat me!</p>
+    </nav>
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" id = "welcome">
+      <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <h1 style="color: white">Welcome to Hao Wang's page</h1>
+        <p class = "lead font-weight-normal" style="color: #EBECFD">I am a current master student of ECE in Georgia Tech<br>
+          Looking for research oppotunity this summer!</p>
+          <a class = "btn btn-outline-secondary" href="cv.pdf" style="color:#EBECFD">Explore my CV</a>
+
+      </div>
+    </div>
+
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+      <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <p class = "lead font-weight-normal" style="color: black">I am interested in <strong><em>machine learning, deep learning, game AI</em></strong> and <strong><em>digital image processing</em></strong>.
+        <p>Welcome to browse my project reports and descripitions through the menu.</p>
+      </div>
+    </div>
+    <p>If you are interested in my experiences, welcome to contact me!</p>
     <p>
       hwang794@gatech.edu <br>
       whao0419@gmail.com <br>
