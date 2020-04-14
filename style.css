@@ -1,10 +1,14 @@
 body{
   /* font-family: 'Orbitron', sans-serif; */
-  border:50px solid #39ff14;
+  border:0px solid #39ff14;
   border-top: 10px;
   color: #39ff14;
   background-color: black;
   margin:0px;
+}
+h3{
+  text-align: center;
+  font-size:25px;
 }
 h1{
   /* font-family: 'Orbitron', sans-serif; */
@@ -13,4 +17,14 @@ h1{
 h2{
   /* font-family: 'Orbitron', sans-serif; */
   text-align: center;
+}
+p{
+  text-align: center;
+  font-size: 25px;
+}
+a{
+  text-align: center;
+}
+#add{
+  font-size:15px;
 }
