@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>bitter lesson chinese version</title>
+  </head>
+  <body>
+    <h1>苦涩的教训 The Bitter Lesson</h1>
+    <h2>英文原作者: Rich Sutton</h2>
+    <h3>原文发布时间: March 13, 2019</h3>
+    <h3><a href=http://www.incompleteideas.net/IncIdeas/BitterLesson.html>原文地址</a></h3>
+    <h4>该文由Rich Sutton博士写于2019年，是关于近七十年来机器学习领域的一些发展规律。Sutton博士得出一个简单的结论：随着算力的提升，那些充分利用算力的“通用”算法往往是最有效率的，
+        最能带来“质变”的算法。但可悲的是，虽然这个结论在不同的机器学习任务上不断被验证，很多研究人员依旧在走着老路：使用人类对问题的理解来设计模型架构，企图将所谓“专家知识”引入机器学习模型。<br>
+        “人类从历史中吸取的唯一教训就是人类无法从历史中吸取教训”<br>
+        虽然本文英文原文被翻译了很多次，但始终没有一个让我满意的版本，我在大约一年前就看过本文的中文版，但翻译的太过应付，很多语境和名词的翻译不像是AI从业者翻译出来的。为了让自己印象更深刻，
+        时刻记住这“苦涩的教训”，同时也为了让自己加深记忆，我自己翻译了这个版本，同时贴上原文，和一些对语境的补充。<br>
+        愚以为在这AI行业广泛灌水的时期，这个苦涩的教训可以帮助我们加速AI的质变，CV的质变发生于AlexNet，ResNet；NLP的质变发生于Transformer，GPT；这些颠覆领域的算法无不遵循Sutton博士的结论，
+        那么下一个质变点在哪里？这希望寄之于诸君身上。
+    </h4>
+    The biggest lesson that can be read from 70 years of AI research is that general methods that leverage computation are ultimately the most effective, and by a large margin.
+    The ultimate reason for this is Moore's law, or rather its generalization of continued exponentially falling cost per unit of computation.
+    Most AI research has been conducted as if the computation available to the agent were constant (in which case leveraging human knowledge would be one of the only ways to improve performance)
+    but, over a slightly longer time than a typical research project, massively more computation inevitably becomes available. 
+    Seeking an improvement that makes a difference in the shorter term, researchers seek to leverage their human knowledge of the domain,
+    but the only thing that matters in the long run is the leveraging of computation.
+    These two need not run counter to each other, but in practice they tend to.
+    Time spent on one is time not spent on the other.
+    There are psychological commitments to investment in one approach or the other.
+    And the human-knowledge approach tends to complicate methods in ways that make them less suited to taking advantage of general methods leveraging computation.
+    There were many examples of AI researchers' belated learning of this bitter lesson, and it is instructive to review some of the most prominent.
+    <br>
+    从 70 年的 AI 研究中可以学到的最大教训是，利用计算的通用方法最终是最有效的，而且较之于其他算法，往往遥遥领先。<font color="blue">【想一想BERT，其是一个通用方法，且一经推出便在各个下游任务上表现良好】</font>根本原因是摩尔定律，或者更确切地说，是它对每单位计算成本持续呈指数下降的概括。 <font color="blue">【比如卷积神经网络，在上世纪八十年代就已推出，但近十年由于算力的提升才逐渐流行起来。同时GPT4这种大规模网络也是必须使用大量算力才可以训练出来】</font>大多数 AI 研究都是在研究人员可用的算力是一定的情况下进行的（在这种情况下，利用人类知识将是提高性能的唯一方法之一），但是，在比单一研究项目更长的时间里，算力会大大增加并可以用于研究中。<font color="blue">【在一个项目周期里，可能算力不会有太多提升，但是长远来看，算力肯定会不可避免地“爆炸”，而之前提出的算法，就无法使用这一部分算力，因为项目之初是考虑当时的算力来设计的】</font>为了寻求在短期内产生影响的改进，研究人员寻求利用他们对该领域的人类知识，但从长远来看，唯一重要的是利用计算。这两者听上去貌似不矛盾，但实际上它们往往会背道而驰。花在一个上的时间多，花在另一个上面的时间就会少。研究人员总是会对投入的时间与精力存在一定的心理预期。<font color="blue">【比如我设计了一个融合专家知识的模型好久，那我一定是对它有一定期望的】</font>人类知识方法往往会使方法复杂化，使它们不太适合利用计算的一般方法。有许多人工智能研究人员在项目过后才吸取这一惨痛教训的例子，回顾其中一些最突出的例子很有启发意义。
+    <br><br>
+    In computer chess, the methods that defeated the world champion, Kasparov, in 1997, were based on massive, deep search.
+    At the time, this was looked upon with dismay by the majority of computer-chess researchers who had pursued methods that leveraged human understanding of the special structure of chess.
+    When a simpler, search-based approach with special hardware and software proved vastly more effective, these human-knowledge-based chess researchers were not good losers.
+    They said that ``brute force" search may have won this time, but it was not a general strategy, and anyway it was not how people played chess.
+    These researchers wanted methods based on human input to win and were disappointed when they did not.
+    <br>
+    在人工智能象棋中，1997 年击败世界冠军卡斯帕罗夫的方法就是基于大规模的深度搜索。当时，大多数计算机国际象棋研究人员对此感到失望，他们一直在寻求利用人类对国际象棋的理解的方法。当使用特殊硬件和软件的更简单、基于搜索的方法被证明更加有效时，这些以人类知识为基础的国际象棋研究人员并不买账。他们说这次“蛮力”搜索可能赢了，但这不是一个通用策略（无法顺利迁移到其他任务上），也不是人们下棋的方式。这些研究人员希望基于人工输入的方法获胜，所以在被“蛮力”算法打败时，他们感到十分沮丧。
+    <br> <br>
+    A similar pattern of research progress was seen in computer Go, only delayed by a further 20 years.
+    Enormous initial efforts went into avoiding search by taking advantage of human knowledge,
+    or of the special features of the game, but all those efforts proved irrelevant,
+    or worse, once search was applied effectively at scale.
+    Also important was the use of learning by self play to learn a value function
+    (as it was in many other games and even in chess, although learning did not play a big role in the 1997 program that first beat a world champion).
+    Learning by self play, and learning in general, is like search in that it enables massive computation to be brought to bear.
+    Search and learning are the two most important classes of techniques for utilizing massive amounts of computation in AI research.
+    In computer Go, as in computer chess, researchers' initial effort was directed towards utilizing human understanding (so that less search was needed)
+    and only much later was much greater success had by embracing search and learning.
+    <br>
+    在20年后，同样的故事也重演于AI围棋的研究进展中，研究人员将巨大的努力都付诸于利用人类“专家”知识，研究围棋的特殊属性上面。但和大规模搜索模型相比，但这些努力均被证明是无效的，甚至损害模型表现的。同样重要的是使用自我对弈学习来学习价值函数（就像在许多其他游戏甚至国际象棋中一样，尽管学习在1997 年首次击败世界冠军的程序中没有发挥重要作用）。<font color="blue">【AlphaGO战胜柯洁后，通过自我对弈来寻找增强学习中的reward函数，这个在1997年的深蓝中没有发挥作用。译者猜测是因为国际象棋的reward在每一步都比围棋更加清晰，比如简单的丢子是负reward，而围棋的reward只有最后一步才开始计算，在这种情况下任何人为设计的reward函数都不如AlphaGO通过大量自我对弈学习到的有效】</font>自我游戏学习，以及通用的学习（比如学习对局），就像搜索一样，因为有庞大的算力进行支持。搜索和学习是在 AI 研究中利用庞大算力的最重要的两类技术。在AI围棋中，就像在AI国际象棋中一样，研究人员最初的努力方向是针对利用人类的理解（需要更少的搜索），但在一段时间之后才利用搜索和学习取得了重大进展。
+    <br><br>
+    In speech recognition, there was an early competition, sponsored by DARPA, in the 1970s.
+    Entrants included a host of special methods that took advantage of human knowledge---knowledge of words,
+    of phonemes, of the human vocal tract, etc.
+    On the other side were newer methods that were more statistical in nature and did much more computation, based on hidden Markov models (HMMs).
+    Again, the statistical methods won out over the human-knowledge-based methods.
+    This led to a major change in all of natural language processing, gradually over decades, where statistics and computation came to dominate the field.
+    The recent rise of deep learning in speech recognition is the most recent step in this consistent direction.
+    Deep learning methods rely even less on human knowledge, and use even more computation, together with learning on huge training sets,
+    to produce dramatically better speech recognition systems.
+    As in the games, researchers always tried to make systems that worked the way the researchers thought their own minds worked---they tried to put that knowledge in their systems---but it proved ultimately counterproductive,
+    and a colossal waste of researcher's time, when, through Moore's law, massive computation became available and a means was found to put it to good use.
+    <br>
+    在语音识别领域，早在 1970 年代就有一场由 DARPA 赞助的早期竞赛。参赛者的其中一派利用人类语言的特征——单词、音素、人类声道等的知识。另一派使用更先进的基于隐马尔可夫模型（HMM）的方法，它们本质上更具统计性，并且需要更多的计算。再一次，统计方法战胜了基于人类知识的方法。这导致了所有自然语言处理的研究都发生了重大变化，在过去的几十年里，统计和计算逐渐占据了该领域的主导地位。最近在语音识别领域兴起的深度学习是朝着这一一致方向迈出的最新一步。深度学习方法对人类知识的依赖更少，并利用更强的算力，以及对大型训练集的学习，来训练更好的语音识别系统。就像在国际象棋和围棋中一样，研究人员总是试图让系统按照研究人员以他们自己的思维方式进行工作——他们试图将这些知识放入他们的系统——但事实证明最终适得其反，并且浪费了研究人员的大量时间。因为由于摩尔定律，大规模计算总会变得可用，并且我们也会找到一种使用这些算力的方法来替代老旧的使用专家知识的方法。<font color="blue">【ChatGPT就是一个典型例子，模型的“精巧”程度可能比不上一些使用专家知识的模型，但其使用庞大的参数和模型体积将那些被研究人员寄予厚望的专家模型远远甩在后面，使其难以望其项背】</font>
+    <br><br>
+    In computer vision, there has been a similar pattern.
+    Early methods conceived of vision as searching for edges, or generalized cylinders, or in terms of SIFT features.
+    But today all this is discarded. Modern deep-learning neural networks use only the notions of convolution and certain kinds of invariances, and perform much better.
+    <br>
+    在计算机视觉中，类似的故事也经常发生。早期的方法将视觉视为搜索边缘或广义圆柱体，或根据 SIFT 特征。但今天这一切都被舍弃了。现代深度学习神经网络仅使用卷积的概念和特定类型的不变性，并且性能要好得多。
+    <br><br>
+    This is a big lesson. As a field, we still have not thoroughly learned it, as we are continuing to make the same kind of mistakes.
+    To see this, and to effectively resist it, we have to understand the appeal of these mistakes. 
+    We have to learn the bitter lesson that building in how we think we think does not work in the long run.
+    The bitter lesson is based on the historical observations that 1) AI researchers have often tried to build knowledge into their agents, 
+    2) this always helps in the short term, and is personally satisfying to the researcher, but 3) in the long run it plateaus and even inhibits further progress,
+    and 4) breakthrough progress eventually arrives by an opposing approach based on scaling computation by search and learning.
+    The eventual success is tinged with bitterness, and often incompletely digested, because it is success over a favored, human-centric approach.
+    <br>
+    这是一个很大的教训。在AI这个领域中，我们还没有完全了解其本质，因为我们还在继续犯同样的错误。 为了看到这一点并有效抵抗它，我们必须了解为什么我们会频繁犯错，到底错误的研究方法对我们有什么吸引力。我们必须吸取惨痛的教训，即从长远来看，将我们的思维方式强加给模型是行不通的。这个惨痛的教训通过以下历史观察得到：1) AI 研究人员经常尝试将知识构建到他们的模型中，2) 这在短期内总是有帮助的，并且对研究人员来说是结果也是令人满意的，但 3) 从长远来看它是停滞的，甚至抑制进一步的进展，以及 4）突破性进展最终通过基于搜索和学习的利用算力的方法实现，这种方法和研究人员倾向使用的引入知识的方法是完全相反的。最终的成功带有一丝苦涩（指不依赖知识，仅依赖计算的方法），而且往往没有被完全理解，因为这种成功不是一种受欢迎的、以人为本的方法的成功。
+    <br><br>
+    One thing that should be learned from the bitter lesson is the great power of general purpose methods,
+    of methods that continue to scale with increased computation even as the available computation becomes very great.
+    The two methods that seem to scale arbitrarily in this way are search and learning.<br>
+    我们应该从惨痛的教训中吸取的一件事，就是通用方法的表现，在算力逐渐增强时会变的越来越强大。可以在这种膨胀的算力中获益的两个通用方法就是搜索与学习。
+    <br><br>
+    The second general point to be learned from the bitter lesson is that the actual contents of minds are tremendously, irredeemably complex;
+    we should stop trying to find simple ways to think about the contents of minds, such as simple ways to think about space, objects, multiple agents, or symmetries.
+    All these are part of the arbitrary, intrinsically-complex, outside world.
+    They are not what should be built in, as their complexity is endless; 
+    instead we should build in only the meta-methods that can find and capture this arbitrary complexity.
+    Essential to these methods is that they can find good approximations, but the search for them should be by our methods, not by us.
+    We want AI agents that can discover like we can, not which contain what we have discovered.
+    Building in our discoveries only makes it harder to see how the discovering process can be done.
+    <br>
+    我们可以从惨痛的教训中吸取的第二个普遍观点是，人类思想的实际内容极其复杂，超乎我们所有人的想象；<font color="blue">【虽然复杂，但是因果推断类的研究还是有一定的价值，因为这是强人工智能一定会经过的一步。目前来看因果推断不太能通过海量数据的学习来得到】</font>我们应该停止尝试寻找简单的方法来模拟我们人类的思考，例如我们在思考空间、物体、多重主体或对称性时使用的简单方法。所有这些都是任意的、本质上复杂的外部世界的一部分。它们不该被内置与模型中，因为它们的复杂性是无穷无尽的；相反，我们应该只构建能够发现和捕获这种任意复杂性的元方法。这些方法的本质是它们可以找到很好的近似值，但是对它们的搜索应该是通过我们的模型，而不是我们自己。我们希望AI模型能够像我们一样认知世界，而不是将我们认知的内容强加于它。将模型建立在我们的认知中只会让我们更难分析整个认知过程是如何完成的。
+</body>
+</html>
