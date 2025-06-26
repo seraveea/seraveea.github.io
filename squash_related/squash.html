@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>香港科技大学（广州）壁球社</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+            padding: 0;
+            color: #222;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 32px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 24px;
+            color: #2d6cdf;
+        }
+        .section {
+            margin-bottom: 32px;
+        }
+        .video-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            background: #000;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: 0;
+        }
+        @media (max-width: 700px) {
+            .container {
+                padding: 12px;
+            }
+        }
+        .question-list {
+            list-style: disc inside;
+            padding-left: 0;
+        }
+        .question-list li {
+            margin-bottom: 10px;
+            font-size: 1.08em;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex; justify-content: center; align-items: flex-start; background: #f5f7fa;">
+        <!-- 左侧图片（仅大屏显示） -->
+        <div class="side-image" id="left-side-image" style="display:none; flex:0 0 300px; margin-right:24px; align-self: stretch; height:100vh; min-height:600px; overflow:hidden; position:relative;">
+            <img id="cycling-image" src="m1.jpg" alt="" style="width:100%; height:100%; border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,0.08); object-fit:cover; object-position:center; position:absolute; left:0; top:0; transition:transform 0.7s cubic-bezier(.4,0,.2,1);">
+        </div>
+        <script>
+            // 图片循环带平移动画
+            (function() {
+                var images = ["m1.jpg", "m2.jpg", "m3.webp"];
+                var idx = 0;
+                var imgEl = null;
+                var animating = false;
+                function cycle() {
+                    if (!imgEl) imgEl = document.getElementById('cycling-image');
+                    if (animating) return;
+                    animating = true;
+                    // 向右平移
+                    imgEl.style.transform = 'translateX(100%)';
+                    setTimeout(function() {
+                        idx = (idx + 1) % images.length;
+                        imgEl.src = images[idx];
+                        // 立即移到左侧外部
+                        imgEl.style.transition = 'none';
+                        imgEl.style.transform = 'translateX(-100%)';
+                        // 触发重绘
+                        void imgEl.offsetWidth;
+                        // 平滑移回原位
+                        imgEl.style.transition = 'transform 0.7s cubic-bezier(.4,0,.2,1)';
+                        imgEl.style.transform = 'translateX(0)';
+                        setTimeout(function() {
+                            animating = false;
+                        }, 700);
+                    }, 700);
+                }
+                window.addEventListener('DOMContentLoaded', function() {
+                    imgEl = document.getElementById('cycling-image');
+                    setInterval(cycle, 3500);
+                });
+            })();
+        </script>
+        <div class="container">
+            <!-- 原有内容开始 -->
+            <!-- ① 引导区（Hero Section） -->
+            <section class="section" style="text-align:center; padding-bottom: 0;">
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px;">
+                    <img src="HKUSTGZ.png" alt="壁球社Logo" style="height:56px; width:auto; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.07); background:#fff;">
+                    <h1 style="margin-bottom: 0; color:#2d6cdf; text-align: center;">香港科技大学（广州）壁球社</h1>
+                </div>
+                <p style="font-size:1.25em; margin-bottom: 18px;">挥拍之间，快乐运动——欢迎加入最健康运动社团！</p>
+                <i>According to “Forbes” for years “<b>the healthiest sport in the world</b>”, burns calories, increases aerobic fitness, increases flexibility, develops strength, improves hand-eye coordination</i>
+                <br>
+                <br>
+                <img src="banner-squash_24.jpg" alt="壁球社Banner" style="max-width:100%; border-radius:10px; box-shadow:0 2px 12px rgba(0,0,0,0.07);">
+            </section>
+
+            <!-- ② 什么是壁球？ -->
+            <section class="section" id="about-squash"></section>
+                <h2>什么是壁球？</h2>
+                <p>
+                    壁球是一项在四面墙的室内球场进行的高速对抗运动，球速快、节奏紧凑，既能锻炼身体，也能锻炼反应和思维。<br>
+                    有研究称壁球是“最健康的运动”之一——燃脂、塑形、解压全都安排！<br>
+                    不论你是运动小白还是高手，都能在壁球中找到乐趣。<br>
+                    香港科技大学（广州）体育馆有着<b>大湾区最好的壁球设施</b>之一
+                </p>
+            </section>
+
+            <!-- ③ 社团介绍 -->
+            <section class="section" id="club-intro"></section>
+                <h2>社团介绍</h2>
+                <p>
+                    我们是香港科技大学（广州）壁球社。本社团为香港科技大学（广州）的非盈利运动兴趣团体。<br>
+                    旨在通过组织定期的壁球活动，提升同学和老师们的身体素质，促进交流与合作，营造健康积极的运动氛围。<br>
+                    <b>定期活动：</b><br>
+                    <br>
+                    <b>壁球公开课</b><br>
+                    我们将在隔周举行壁球体验课，邀请俱乐部教练为大家进行壁球教学。课程通过社团群内接龙报名，具体时间会提前通知。<br>
+                    每次课程将分为两个时间段，分别为【初级场】和【中级场】。【初级场】适合零基础同学，教练会从基本动作开始教学；【中级场】适合有一定基础的同学，教练会进行更深入的技巧指导。<br>
+                    参加课程最好<b>自备球拍和白色双黄点壁球，穿着薄底运动鞋。</b>
+                    <br>
+                    <br>
+                    <b>友谊赛</b><br>
+                    在课程之余我们也将组织友谊赛，促进同学们之间的交流与切磋。同时也欢迎大家在群里自由组队，共同进步。<br>
+                </p>
+            </section>
+
+            <!-- 目录导航 -->
+            <nav class="section" style="margin-bottom:32px;">
+                <h2 style="font-size:1.15em; color:#2d6cdf; margin-bottom:10px;">目录</h2>
+                <ul style="list-style: disc inside; padding-left:0; line-height:1.9;">
+                    <li><a href="#recent-activities">近期活动</a></li>
+                    <li><a href="#beginner-guide">入门知识 / 打法演示</a></li>
+                    <li><a href="#equipment">球拍和装备推荐</a></li>
+                    <li><a href="#safety">安全事项提醒</a></li>
+                    <li><a href="#faq">其他事项（FAQs）【推荐新手阅读】</a></li>
+                </ul>
+            </nav>
+
+            <!-- ④ 活动回顾 / 近期活动 -->
+            <section class="section" id="recent-activities">
+                <h2>近期活动</h2>
+                2025/06/20 第四次壁球公开课<br>
+                2025/05/30 第三次壁球公开课<br>
+                2025/05/09 第二次壁球公开课<br>
+                2025/04/25 第一次壁球公开课<br>
+            </section>
+
+            <!-- ⑤ 入门知识（新手福利） -->
+            <section class="section" id="beginner-guide">
+                <h2>入门知识 / 打法演示</h2>
+                <div class="video-list">
+                    <div>
+                        <div style="font-weight:bold; margin-bottom:6px;">快速了解</div>
+                        <div class="video-wrapper">
+                            <iframe src="https://player.bilibili.com/player.html?bvid=BV1hq4y1g7YH&high_quality=1" allowfullscreen></iframe>
+                        </div>
+                    </div>               
+                    <div>
+                        <div style="font-weight:bold; margin-bottom:6px;">基础练习</div>
+                        <div class="video-wrapper">
+                            <iframe src="https://player.bilibili.com/player.html?bvid=BV1EM4y1G7as&high_quality=1" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="font-weight:bold; margin-bottom:6px;">比赛规则介绍</div>
+                        <div class="video-wrapper">
+                            <iframe src="https://player.bilibili.com/player.html?bvid=BV1ib4y1Y7N8&high_quality=1" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ⑦ 球拍和装备推荐 -->
+            <section class="section" id="equipment">
+                <h2>球拍和装备推荐</h2>
+                <ul class="question-list">
+                    <li>
+                        <b>入门球拍：</b>
+                        <br>
+                        即使是入门，铝合金球拍也十分不推荐（比如天龙的各种基础拍子，卖你拍子送你护腕，你想想是为什么），因为球拍自重和新手发力方式的原因，铝合金球拍会对手腕造成较大负担，导致球还没打好，手腕先受伤了。<br>
+                        而且入门级碳素球拍的价格也并不高，价格大多在300左右，二手球拍会性价比更高。以下是不同价位的品牌推荐：<br><br>
+                        【小于500】Oliver 和 卡拉卡尔（Karakal）<br>
+                        这两个品牌的碳素球拍重量控制的都不错同时甜区够大，作为练习用拍完全合格。<br><br>
+                        虽然上面的拍子已经足够我们愉快地玩耍了，但是如果你想要更好的体验，比如更高的磅数，力度，控制，以下品牌的球拍会是不错的选择：<br><br>
+                        Tecnifibre, HEAD, DUNLOP<br>
+                        PSA壁球职业运动员用什么拍子就买什么拍子，可能会贵一点，但绝对不坑。<br>
+                    </li>
+                    <li>
+                        <b>运动鞋服：</b>
+                        <br>
+                        服装上没有特殊要求，透气性好的运动服都可以。<br>
+                        但是运动鞋上建议选择<b>网球鞋，羽毛球鞋或者乒乓球鞋</b>，壁球专用运动鞋会更贵一些，因此网球鞋等是性价比最高的选择。因为壁球运动需要较多的侧向移动和快速启动，网球鞋和羽毛球鞋的抓地力和支撑性更好。一定不要穿跑步鞋，因为跑步鞋的缓震会导致重心过高，在进行移动时有摔倒乃至骨折的风险。<br>
+                        如果热爱，可以选择购买壁球专用鞋，推荐如下：<br>
+                        亚瑟士 Upcourt 6<br>
+                        亚瑟士 Gel Rocket 11<br>
+                        亚瑟士 Gel-Renma<br>
+                        阿迪达斯 Crazyflight<br>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ⑧ 安全事项提醒 -->
+            <section class="section" id="safety">
+                <h2>安全事项提醒</h2>
+                <ul class="question-list">
+                    <li>壁球为高强度运动，请确保自身无心脏相关疾病。</li>
+                    <li>打球前请充分热身，避免运动损伤。</li>
+                    <li>注意场上安全，避免挥拍误伤他人。</li>
+                    <li>18岁以下同学需要佩戴护目镜，同时所有年龄段同学老师都推荐佩戴护目镜，以免受伤。</li>
+                    <li>如有身体不适请及时休息，安全第一。</li>
+                </ul>
+            </section>
+            <section class="section" id="faq">
+                <h2>其他事项（FAQs）</h2>
+                <ul class="question-list">
+                    <li>
+                        <b>Q: 没有基础可以参加吗？</b><br>
+                        A: 完全可以！社团活动分为初级和中级场，零基础同学会有专门的体验和教学环节。
+                    </li>
+                    <li>
+                        <b>Q: 需要自带球拍和装备吗？</b><br>
+                        A: 需要。由于社团经费有限请自备球拍，如果第一次参加不想购入球拍，也可以找同学老师借一个。我们虽然可以提供廉价球拍，但是铝合金球拍会伤手腕，为了安全着想，建议还是自备碳素球拍。<br>
+                    </li>
+                    <li>
+                        <b>Q: 壁球和羽毛球/网球有何不同？</b><br>
+                        A: 壁球在四面墙的封闭场地进行，球速快、节奏紧凑，对反应和体能要求较高，同时发力方式有根本不同。羽毛球手腕发力，网球大臂发力，而壁球则是注重小臂以及全身力量，尤其是核心肌群的力量。<br>
+                    </li>
+                    <li>
+                        <b>Q: 购买壁球时有多种选择，双黄点/黄点/红点/蓝点，黑球/白球，我要怎么选？</b><br>
+                        A: 最好一开始练习就使用黄点以及双黄点进行训练，虽然蓝点球对于新手更加友好，但是蓝点球的弹性和速度会让新手在练习时养成错误的击球习惯和击球节奏。至于颜色，则需要根据场地的颜色而定，港科广校园内为深色玻璃墙，因此建议使用白球。<br>
+                    </li>
+                    <li>
+                        <b>Q: 我是女生，如果拍子太宽了不舒服怎么办？</b><br>
+                        A: 壁球拍有专门给小手人士准备的窄握把球拍。这个需要在购买时注意一下，或者直接咨询店家。<br>
+                    </li>
+                    <li>
+                        <b>Q:壁球拍有假货吗？</b><br>
+                        A: 没有，因为小众，作假工厂花钱开模，一年卖不了几支回不了本。<br>
+                    </li>
+                    <li>
+                        <b>Q:我参加了几次课程，也自己练习了，还是打得不好，捡球捡到吐，为什么？我是不是不适合打壁球？</b><br>
+                        A: 每一次比上一次好就可以了，放慢节奏享受过程，每个人的运动基础不同，不必以所谓的“正常”进度苛求自己。因为喜欢这个运动而参加，才是正确的心态。<br>
+                    </li>
+                    <li>
+                        <b>Q:这个运动相比其他的运动有什么区别？比如乒乓球，网球，羽毛球等？我能收获什么？</b><br>
+                        A: 运动不分好坏，但要说区别，壁球由于墙壁的设置可能会有更多变的球路，相比于羽毛球和网球的界线，壁球弹到侧墙反弹回来也是可以接的，更有一种“博弈”的感觉。步伐上总体跑动量不如网球，但是由于场地更小且可以在墙壁间反弹，对于瞬间爆发力的要求会高一些。<br>
+                    </li>
+                </ul>
+            </section>
+            <!-- 原有内容结束 -->
+        </div>
+        <!-- 右侧图片（仅大屏显示） -->
+        <div class="side-image" id="right-side-image" style="display:none; flex:0 0 300px; margin-left:24px; align-self: stretch; height:100vh; min-height:600px; overflow:hidden; position:relative;">
+            <img id="cycling-image-right" src="f1.jpg.webp"" style="width:100%; height:100%; border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,0.08); object-fit:cover; object-position:center; position:absolute; left:0; top:0; transition:transform 0.7s cubic-bezier(.4,0,.2,1);">
+        </div>
+        <script>
+            // 右侧图片循环带平移动画
+            (function() {
+            var images = ["f1.jpg.webp", "f2.jpg", "f3.jpg"];
+            var idx = 0;
+            var imgEl = null;
+            var animating = false;
+            function cycle() {
+                if (!imgEl) imgEl = document.getElementById('cycling-image-right');
+                if (animating) return;
+                animating = true;
+                imgEl.style.transform = 'translateX(-100%)';
+                setTimeout(function() {
+                idx = (idx + 1) % images.length;
+                imgEl.src = images[idx];
+                imgEl.style.transition = 'none';
+                imgEl.style.transform = 'translateX(100%)';
+                void imgEl.offsetWidth;
+                imgEl.style.transition = 'transform 0.7s cubic-bezier(.4,0,.2,1)';
+                imgEl.style.transform = 'translateX(0)';
+                setTimeout(function() {
+                    animating = false;
+                }, 700);
+                }, 700);
+            }
+            window.addEventListener('DOMContentLoaded', function() {
+                imgEl = document.getElementById('cycling-image-right');
+                setInterval(cycle, 3500);
+            });
+            })();
+        </script>
+    </div>
+    <script>
+        // 响应式显示两侧图片
+        function handleSideImages() {
+            var sideImages = document.querySelectorAll('.side-image');
+            if(window.innerWidth >= 1200) {
+                sideImages.forEach(function(img){ img.style.display = 'block'; });
+            } else {
+                sideImages.forEach(function(img){ img.style.display = 'none'; });
+            }
+        }
+        window.addEventListener('resize', handleSideImages);
+        window.addEventListener('DOMContentLoaded', handleSideImages);
+    </script>
+</body>
+</html>
+<!-- 图片来源声明 -->
+<footer style="text-align:center; color:#888; font-size:0.98em; margin:32px 0 18px 0;">
+    所有图片来自于 
+    <a href="https://www.worldsquash.org" target="_blank" rel="noopener" style="color:#2d6cdf;">https://www.worldsquash.org</a>
+    和
+    <a href="https://www.psasquashtour.com" target="_blank" rel="noopener" style="color:#2d6cdf;">https://www.psasquashtour.com</a>
+    ，不用于商业用途。
+</footer>
