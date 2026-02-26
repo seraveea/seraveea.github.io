@@ -79,13 +79,252 @@
     <main class="container">
       <!-- 顶部菜单（已合并为「社团介绍」） -->
       <nav class="top-nav" aria-label="主菜单">
-        <button class="tab active" data-target="club-intro-merged">社团介绍</button>
+        <button class="tab active" data-target="league">2026 HKUST-GZ Squash League</button>
+        <button class="tab" data-target="club-intro-merged">社团介绍</button>
         <button class="tab" data-target="recent-activities">近期活动</button>
         <button class="tab" data-target="beginner-guide">入门知识</button>
         <button class="tab" data-target="equipment">装备推荐</button>
         <button class="tab" data-target="safety">安全事项</button>
         <button class="tab" data-target="faq">FAQs</button>
       </nav>
+
+
+      <section class="section" id="league">
+        <h2>HKUST-GZ Squash League（2026 Spring）</h2>
+        
+        <h3 style="margin-top:20px;">球员积分榜 Player Leaderboard</h3>
+        
+        <!-- 切换男女组 -->
+        <div style="display:flex; gap:10px; margin:16px 0; justify-content:center;">
+          <button class="division-tab active" data-division="men" style="padding:8px 20px; border-radius:20px; border:1px solid var(--border); background:var(--brand); color:#fff; cursor:pointer; font-size:0.95em; transition:all 0.2s;">
+            男子组 Men's
+          </button>
+          <button class="division-tab" data-division="women" style="padding:8px 20px; border-radius:20px; border:1px solid var(--border); background:#fff; color:var(--fg); cursor:pointer; font-size:0.95em; transition:all 0.2s;">
+            女子组 Women's
+          </button>
+        </div>
+
+        <!-- 积分榜表格 -->
+        <div style="overflow-x:auto;">
+          <table id="leaderboard-table" style="width:100%; border-collapse:collapse; margin:12px 0;">
+            <thead>
+              <tr style="background:#f0f0f0;">
+                <th style="border:1px solid #d9e1ec; padding:10px; text-align:center;">排名<br>Rank</th>
+                <th style="border:1px solid #d9e1ec; padding:10px; text-align:center;">照片<br>Photo</th>
+                <th style="border:1px solid #d9e1ec; padding:10px; text-align:left;">姓名<br>Name</th>
+                <th style="border:1px solid #d9e1ec; padding:10px; text-align:center; cursor:pointer;" onclick="sortLeaderboard('points')">
+                  积分 Points ▼
+                </th>
+                <th style="border:1px solid #d9e1ec; padding:10px; text-align:center;">比赛场次<br>Matches</th>
+                <th style="border:1px solid #d9e1ec; padding:10px; text-align:center;">胜/负<br>W/L</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboard-body">
+              <!-- 数据将通过JavaScript动态填充 -->
+            </tbody>
+          </table>
+        </div>
+
+        <p style="font-size:0.9em; color:#666; margin-top:8px; margin-bottom:32px;">
+          <em>点击"积分"列标题可以排序 | Click "Points" column header to sort</em>
+        </p>
+
+        <script>
+          // 球员数据
+          const playerData = {
+            men: [
+              { name: "张三 Zhang San", photo: "squash_related/m1.jpg", points: 0, matches: 0, wins: 0, losses: 0 },
+              { name: "李四 Li Si", photo: "squash_related/m1.jpg", points: 0, matches: 0, wins: 0, losses: 0 },
+              { name: "王五 Wang Wu", photo: "squash_related/m1.jpg", points: 0, matches: 0, wins: 0, losses: 0 },
+              { name: "赵六 Zhao Liu", photo: "squash_related/m1.jpg", points: 0, matches: 0, wins: 0, losses: 0 },
+              { name: "钱七 Qian Qi", photo: "squash_related/m1.jpg", points: 0, matches: 0, wins: 0, losses: 0 },
+            ],
+            women: [
+              { name: "小红 Xiao Hong", photo: "squash_related/f1.jpg.webp", points: 0, matches: 0, wins: 0, losses: 0 },
+              { name: "小芳 Xiao Fang", photo: "squash_related/f1.jpg.webp", points: 0, matches: 0, wins: 0, losses: 0 },
+              { name: "小丽 Xiao Li", photo: "squash_related/f1.jpg.webp", points: 0, matches: 0, wins: 0, losses: 0 },
+              { name: "小美 Xiao Mei", photo: "squash_related/f1.jpg.webp", points: 0, matches: 0, wins: 0, losses: 0 },
+            ]
+          };
+
+          let currentDivision = 'men';
+          let sortDescending = true;
+
+          function renderLeaderboard() {
+            const tbody = document.getElementById('leaderboard-body');
+            const players = [...playerData[currentDivision]];
+            
+            // 按积分排序
+            if (sortDescending) {
+              players.sort((a, b) => b.points - a.points);
+            } else {
+              players.sort((a, b) => a.points - b.points);
+            }
+
+            tbody.innerHTML = players.map((player, index) => `
+              <tr style="background:${index % 2 === 0 ? '#fff' : '#f9f9f9'};">
+                <td style="border:1px solid #d9e1ec; padding:10px; text-align:center; font-weight:bold; color:${index < 3 ? 'var(--brand)' : 'inherit'};">
+                  ${index + 1}
+                </td>
+                <td style="border:1px solid #d9e1ec; padding:10px; text-align:center;">
+                  <img src="${player.photo}" alt="${player.name}" style="width:50px; height:50px; border-radius:50%; object-fit:cover; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
+                </td>
+                <td style="border:1px solid #d9e1ec; padding:10px;">
+                  ${player.name}
+                </td>
+                <td style="border:1px solid #d9e1ec; padding:10px; text-align:center; font-weight:bold; font-size:1.1em; color:var(--brand);">
+                  ${player.points}
+                </td>
+                <td style="border:1px solid #d9e1ec; padding:10px; text-align:center;">
+                  ${player.matches}
+                </td>
+                <td style="border:1px solid #d9e1ec; padding:10px; text-align:center;">
+                  <span style="color:green; font-weight:bold;">${player.wins}</span> / 
+                  <span style="color:red;">${player.losses}</span>
+                </td>
+              </tr>
+            `).join('');
+          }
+
+          function sortLeaderboard(column) {
+            if (column === 'points') {
+              sortDescending = !sortDescending;
+              renderLeaderboard();
+            }
+          }
+
+          // 切换男女组
+          document.addEventListener('DOMContentLoaded', function() {
+            const divisionTabs = document.querySelectorAll('.division-tab');
+            
+            divisionTabs.forEach(tab => {
+              tab.addEventListener('click', function() {
+                const division = this.dataset.division;
+                currentDivision = division;
+                
+                // 更新按钮样式
+                divisionTabs.forEach(t => {
+                  if (t.dataset.division === division) {
+                    t.style.background = 'var(--brand)';
+                    t.style.color = '#fff';
+                    t.classList.add('active');
+                  } else {
+                    t.style.background = '#fff';
+                    t.style.color = 'var(--fg)';
+                    t.classList.remove('active');
+                  }
+                });
+                
+                renderLeaderboard();
+              });
+            });
+
+            // 初始渲染
+            renderLeaderboard();
+          });
+        </script>
+
+        <h3>一、赛事宗旨 I. Purpose</h3>
+        <p>为促进壁球运动在校内的推广，增强交流与参与度，特举办本次壁球联赛。本赛事采用灵活赛制，以适应不同水平和时间安排的参赛者。<br>
+        <em style="color:#666;">To promote squash on campus, enhance communication and participation, this league is organized. The event adopts a flexible format to accommodate participants of different skill levels and schedules.</em></p>
+
+        <h3>二、参赛对象 II. Participants</h3>
+        <p><strong>本次比赛分男子组和女子组。<br>
+        <em style="color:#666; font-weight:normal;">The competition is divided into Male Division and Female Division.</em></strong></p>
+        <ul>
+          <li>本次比赛面向全校师生。<br>
+          <em style="color:#666;">This competition is open to all faculty and students.</em></li>
+          <li>参赛者需具备基本壁球运动能力并认可本规程，遵守壁球比赛规定。<br>
+          <em style="color:#666;">Participants must have basic squash abilities, acknowledge these regulations, and abide by squash competition rules.</em></li>
+          <li>参赛者须确认自身身体状况适合参加本次比赛，并对自身健康与安全负责，按需佩戴护目镜以及其他相关护具。报名参赛即视为自愿参加并自行承担相关风险。壁球社不对比赛过程中发生的意外伤害或健康问题承担责任。<br>
+          <em style="color:#666;">Participants must confirm their physical condition is suitable for the competition and take responsibility for their own health and safety, wearing protective eyewear and other relevant gear as needed. Entering the competition is considered voluntary participation with self-assumed risks. The squash club is not responsible for any accidental injuries or health issues during the competition.</em></li>
+        </ul>
+        
+        <h3>三、比赛用球与规则 III. Ball and Rules</h3>
+        <ol>
+          <li>比赛使用统一比赛用球（白色单/双黄点球）。<br>
+          <em style="color:#666;">Unified competition balls (white single/double yellow dot) will be used.</em></li>
+          <li>采用国际壁球联合会（WSF）规则。<br>
+          <em style="color:#666;">World Squash Federation (WSF) rules.</em></li>
+          <li>采用 PAR11 计分制（每局 11 分）。<br>
+          <em style="color:#666;">PAR11 scoring system (11 points per game).</em></li>
+          <li>比赛采用三局两胜制（BO3）。<br>
+          <em style="color:#666;">Best of 3 games format (BO3).</em></li>
+          <li>如出现争议例如阻挡等情况，联赛阶段需比赛双方商议决定是否重开该球。<br>
+          <em style="color:#666;">In case of disputes such as obstruction during the match, both players must negotiate to decide whether to replay the point.</em></li>
+        </ol>
+        
+        <h3>四、赛制说明 IV. Competition</h3>
+        <p>本次比赛分为两个阶段：<br>
+        <em style="color:#666;">The competition consists of two stages:</em></p>
+        <p><strong>（一）联赛阶段（自由约赛） (I) League Stage</strong><br>
+        参赛者在规定时间内自行预约场地并完成比赛，比赛结果计入积分排名。<br>
+        <em style="color:#666;">Participants schedule courts and complete matches within the designated period, with results contributing to points rankings.</em></p>
+        <p><strong>（二）决赛阶段（集中比赛） (II) Finals Stage</strong><br>
+        联赛阶段排名前若干名（具体名次依照实际参与人数另行决定）进入淘汰赛阶段，具体赛程另行通知。<br>
+        <em style="color:#666;">Top-ranked players from the league stage (specific number to be determined based on actual participation) will enter the knockout stage, with detailed schedule to be announced separately.</em></p>
+
+        <h3>五、联赛阶段匹配规则 V. League Stage Match Rules</h3>
+        <p>为兼顾公平性与灵活性，联赛阶段采用分阶段匹配机制，为期两个月（三月和四月）。双方可提前在壁球社微信社群自行约赛，或者在场地临时匹配，结果在比赛结束后经过双方同意，在微信社群上传。<br>
+        <em style="color:#666;">To balance fairness and flexibility, the league stage adopts a phased matching mechanism, lasting two months (March and April). Players can arrange matches in advance through the squash club WeChat group or match on-site, with results uploaded to the WeChat group after mutual agreement.</em></p>
+        <table style="width:100%; border-collapse:collapse; margin:12px 0;">
+          <tr style="background:#f0f0f0;">
+        <th style="border:1px solid #d9e1ec; padding:10px; text-align:left;">比赛阶段 Stage</th>
+        <th style="border:1px solid #d9e1ec; padding:10px; text-align:left;">说明 Description</th>
+          </tr>
+          <tr>
+        <td style="border:1px solid #d9e1ec; padding:10px;"><strong>定位赛<br>Placement Matches</strong></td>
+        <td style="border:1px solid #d9e1ec; padding:10px;">参赛者需完成5场比赛进行排名定位。在此期间，参赛者可与任意其他参赛者约赛，至少需要和3名不同对手进行比赛。<br>
+        <em style="color:#666;">Participants must complete 5 matches for ranking placement. During this period, participants can challenge any other participant, but must play against at least 3 different opponents.</em></td>
+          </tr>
+          <tr>
+        <td style="border:1px solid #d9e1ec; padding:10px;"><strong>排位赛<br>Ranked Matches</strong></td>
+        <td style="border:1px solid #d9e1ec; padding:10px;">参赛者完成5场比赛之后，自动进入排位赛阶段。参赛者仅允许挑战当前排名前后3名以内的选手。<br>
+        <em style="color:#666;">After completing 5 matches, participants automatically enter the ranked stage. Participants may only challenge opponents within 3 positions of their current ranking.</em></td>
+          </tr>
+        </table>
+
+        <p>为避免刷分行为，同一对手最多计入 1 场有效比赛成绩。<br>
+        <em style="color:#666;">To prevent score exploitation, only 1 match result against the same opponent will count.</em></p>
+
+        <p>每场比赛按胜负计分：<br>
+        <em style="color:#666;">Points are awarded per match result:</em></p>
+        <table style="width:100%; border-collapse:collapse; margin:12px 0;">
+          <tr style="background:#f0f0f0;">
+        <th style="border:1px solid #d9e1ec; padding:10px; text-align:left;">比赛结果 Result</th>
+        <th style="border:1px solid #d9e1ec; padding:10px; text-align:left;">积分 Points</th>
+          </tr>
+          <tr>
+        <td style="border:1px solid #d9e1ec; padding:10px;">3–0</td>
+        <td style="border:1px solid #d9e1ec; padding:10px;">3分 / 3 pts</td>
+          </tr>
+          <tr>
+        <td style="border:1px solid #d9e1ec; padding:10px;">3–1</td>
+        <td style="border:1px solid #d9e1ec; padding:10px;">3分 / 3 pts</td>
+          </tr>
+          <tr>
+        <td style="border:1px solid #d9e1ec; padding:10px;">3–2</td>
+        <td style="border:1px solid #d9e1ec; padding:10px;">2分 / 2 pts</td>
+          </tr>
+          <tr>
+        <td style="border:1px solid #d9e1ec; padding:10px;">2–3</td>
+        <td style="border:1px solid #d9e1ec; padding:10px;">1分 / 1 pt</td>
+          </tr>
+          <tr>
+        <td style="border:1px solid #d9e1ec; padding:10px;">1–3</td>
+        <td style="border:1px solid #d9e1ec; padding:10px;">0分 / 0 pts</td>
+          </tr>
+          <tr>
+        <td style="border:1px solid #d9e1ec; padding:10px;">0–3</td>
+        <td style="border:1px solid #d9e1ec; padding:10px;">0分 / 0 pts</td>
+          </tr>
+        </table>
+
+        <h3>六、决赛阶段规则 VI. Finals Stage Rules</h3>
+        <p>决赛阶段将采用淘汰赛制，具体赛程另行通知。<br>
+        <em style="color:#666;">The finals stage will adopt a knockout format, with specific schedule to be announced separately.</em></p>
+
+      </section>
 
       <!-- 合并后的「社团介绍」 -->
       <section class="section" id="club-intro-merged">
@@ -127,6 +366,11 @@
       <!-- 近期活动 -->
       <section class="section" id="recent-activities">
         <h2>近期活动</h2>
+        2025/12/26 第十次壁球公开课<br>
+        2025/11/25 第九次壁球公开课<br>
+        2025/11/21 第八次壁球公开课<br>
+        2025/11/14 第七次壁球公开课<br>
+        2025/10/24 第六次壁球公开课<br>
         2025/07/04 第五次壁球公开课<br>
         2025/06/20 第四次壁球公开课<br>
         2025/05/30 第三次壁球公开课<br>
