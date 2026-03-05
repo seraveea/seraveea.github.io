@@ -80,6 +80,7 @@
       <!-- 顶部菜单（已合并为「社团介绍」） -->
       <nav class="top-nav" aria-label="主菜单">
         <button class="tab active" data-target="league">2026 HKUST-GZ Squash League</button>
+        <button class="tab" data-target="match-records">比赛记录 Match Records</button>
         <button class="tab" data-target="club-intro-merged">社团介绍</button>
         <button class="tab" data-target="recent-activities">近期活动</button>
         <button class="tab" data-target="beginner-guide">入门知识</button>
@@ -134,17 +135,17 @@
           const playerData = {
             men: [
               { name: "黄梓洲 Zizhou Huang", photo: "players/huangzizhou.jpg", points: 0, matches: 0, wins: 0, losses: 0 },
-              { name: "我是坦克手杰瑞 Tank Driver Jerry", photo: "players/jerry.jpg", points: 0, matches: 0, wins: 0, losses: 0 },
+              { name: "我是坦克手杰瑞 Tank Driver Jerry", photo: "players/jerry.jpg", points: 1, matches: 1, wins: 0, losses: 1 },
               { name: "潦草的David.Dai 活着Squash 弹开了算", photo: "players/david_dai.jpg", points: 0, matches: 0, wins: 0, losses: 0 },
               { name: "不吃香菜 No Cilantro", photo: "players/buchixiangcai.jpg", points: 0, matches: 0, wins: 0, losses: 0 },
-              { name: "Anurag Gumber", photo: "players/anu.jpg", points: 0, matches: 0, wins: 0, losses: 0 },
+              { name: "Anurag Gumber", photo: "players/anu.jpg", points: 8, matches: 3, wins: 3, losses: 0 },
               { name: "你猜我是谁 Guess Who I Am", photo: "players/guesswho.jpg", points: 0, matches: 0, wins: 0, losses: 0 },
               { name: "南沙阿糯 Nansha Arnold", photo: "players/anuo.jpg", points: 0, matches: 0, wins: 0, losses: 0 },
-              { name: "行为艺术家 Performance Artist", photo: "players/artist.jpg", points: 0, matches: 0, wins: 0, losses: 0 },
+              { name: "行为艺术家 Performance Artist", photo: "players/artist.jpg", points: 0, matches: 1, wins: 0, losses: 1 },
               { name: "要开心鸭 Joy Your Journey", photo: "players/jyj.jpg", points: 0, matches: 0, wins: 0, losses: 0 },
               { name: "佛系球友 Causal Player", photo: "players/empty.jpg", points: 0, matches: 0, wins: 0, losses: 0 },
               { name: "转笔王 Pen Spinning King", photo: "players/zhuanbiwang.jpg", points: 0, matches: 0, wins: 0, losses: 0 },
-              { name: "Takamine", photo: "players/takamine.png", points: 0, matches: 0, wins: 0, losses: 0 }
+              { name: "Takamine", photo: "players/takamine.png", points: 0, matches: 1, wins: 0, losses: 1 }
             ],
             women: [
               { name: "115", photo: "players/115.jpg", points: 0, matches: 0, wins: 0, losses: 0 },
@@ -310,7 +311,7 @@
           </tr>
           <tr>
         <td style="border:1px solid #d9e1ec; padding:10px;">1–2</td>
-        <td style="border:1px solid #d9e1ec; padding:10px;">1分 / 1 pts</td>
+        <td style="border:1px solid #d9e1ec; padding:10x;">1分 / 1 pts</td>
           </tr>
           <tr>
         <td style="border:1px solid #d9e1ec; padding:10px;">0–2</td>
@@ -444,6 +445,45 @@
           <li><b>Q: 练了几次还是不好，是不是不适合？</b><br>A: 享受过程，每次进步一点点即可，不要焦虑。</li>
           <li><b>Q: 和其他球类有何区别？</b><br>A: 壁球球路变化多，更具“博弈”感；瞬时爆发力要求更高。</li>
         </ul>
+      </section>
+
+      <!-- 比赛记录 -->
+      <section class="section" id="match-records">
+        <h2>比赛记录 Match Records</h2>
+        <div style="margin-top:20px;">
+          <h3 style="color:var(--brand); margin-bottom:12px;">2026 Spring Season</h3>
+          
+          <div style="background:#f8f9fa; padding:16px; border-radius:8px; margin-bottom:16px; border-left:4px solid var(--brand);">
+            <div style="font-weight:bold; font-size:1.1em; margin-bottom:8px;">2026 Mar 5 - Ranking Match 1</div>
+            <div style="display:grid; grid-template-columns:1fr auto 1fr; gap:8px; align-items:center; margin:8px 0;">
+              <div style="text-align:right;">Anurag Gumber</div>
+              <div style="background:var(--brand); color:#fff; padding:4px 12px; border-radius:4px; font-weight:bold;">2 - 1</div>
+              <div style="text-align:left;">我是坦克手杰瑞 Tank Driver Jerry</div>
+            </div>
+          </div>
+          <div style="background:#f8f9fa; padding:16px; border-radius:8px; margin-bottom:16px; border-left:4px solid var(--brand);">
+            <div style="font-weight:bold; font-size:1.1em; margin-bottom:8px;">2026 Mar 5 - Ranking Match 2</div>
+            <div style="display:grid; grid-template-columns:1fr auto 1fr; gap:8px; align-items:center; margin:8px 0;">
+              <div style="text-align:right;">Anurag Gumber</div>
+              <div style="background:var(--brand); color:#fff; padding:4px 12px; border-radius:4px; font-weight:bold;">2 - 0</div>
+              <div style="text-align:left;">行为艺术家 Performance Artist</div>
+            </div>
+          </div>
+
+          <div style="background:#f8f9fa; padding:16px; border-radius:8px; margin-bottom:16px; border-left:4px solid var(--brand);">
+            <div style="font-weight:bold; font-size:1.1em; margin-bottom:8px;">2026 Mar 5 - Ranking Match 3</div>
+            <div style="display:grid; grid-template-columns:1fr auto 1fr; gap:8px; align-items:center; margin:8px 0;">
+              <div style="text-align:right;">Anurag Gumber</div>
+              <div style="background:var(--brand); color:#fff; padding:4px 12px; border-radius:4px; font-weight:bold;">2 - 0</div>
+              <div style="text-align:left;">Takamine</div>
+            </div>
+          </div>
+
+
+          <p style="color:#888; font-size:0.95em; margin-top:20px; text-align:center;">
+            更多比赛记录将持续更新...
+          </p>
+        </div>
       </section>
 
       <!-- 图片来源声明 -->
