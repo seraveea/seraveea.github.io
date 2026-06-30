@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Hao Wang — PhD Candidate in Data Science and Analytics at HKUST(GZ)">
-  <title>Hao Wang</title>
+  <meta name="description" content="王昊 — 香港科技大学（广州）数据科学与分析学域博士研究生">
+  <title>王昊 · Hao Wang</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -45,7 +45,7 @@
     }
 
     body {
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Inter", "PingFang SC", "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.65;
@@ -66,10 +66,7 @@
       padding: 0 24px;
     }
 
-    /* Header */
-    header {
-      padding: 64px 0 48px;
-    }
+    header { padding: 64px 0 48px; }
 
     .hero {
       display: flex;
@@ -113,7 +110,6 @@
     .contact-row span::before { content: "·"; margin-right: 16px; color: var(--border); }
     .contact-row span:first-child::before { content: none; margin: 0; }
 
-    /* Nav */
     nav {
       position: sticky;
       top: 0;
@@ -151,12 +147,9 @@
       color: var(--text);
     }
 
-    /* Sections */
     main { padding-bottom: 80px; }
 
-    section {
-      padding-top: 48px;
-    }
+    section { padding-top: 48px; }
 
     section h2 {
       font-size: 0.75rem;
@@ -167,7 +160,6 @@
       margin-bottom: 24px;
     }
 
-    /* Timeline entries */
     .entry {
       padding-bottom: 28px;
       margin-bottom: 28px;
@@ -212,10 +204,7 @@
       margin-bottom: 10px;
     }
 
-    .entry ul {
-      list-style: none;
-      padding: 0;
-    }
+    .entry ul { list-style: none; padding: 0; }
 
     .entry li {
       position: relative;
@@ -246,7 +235,6 @@
       margin-top: 4px;
     }
 
-    /* Publications */
     .pub {
       padding: 20px;
       background: var(--surface);
@@ -304,7 +292,6 @@
       background: var(--text-muted);
     }
 
-    /* Awards */
     .award {
       display: flex;
       justify-content: space-between;
@@ -330,13 +317,6 @@
 
     .award-text strong { font-weight: 600; }
 
-    .intro p {
-      font-size: 0.9375rem;
-      color: var(--text-secondary);
-      line-height: 1.75;
-    }
-
-    /* Footer */
     footer {
       border-top: 1px solid var(--border);
       padding: 32px 0;
@@ -374,15 +354,15 @@
   <div class="container">
     <header>
       <div class="hero">
-        <img src="picture.jpg" alt="Hao Wang" class="avatar">
+        <img src="picture.jpg" alt="王昊" class="avatar">
         <div class="hero-text">
-          <h1>Hao Wang</h1>
-          <p class="subtitle">PhD Candidate · Thrust of Data Science and Analytics<br>The Hong Kong University of Science and Technology (Guangzhou)</p>
+          <h1>王昊 <span style="font-weight:400;color:var(--text-secondary);font-size:1.5rem;">Hao Wang</span></h1>
+          <p class="subtitle">数据科学与分析学域 · 博士研究生<br>香港科技大学（广州）</p>
           <div class="contact-row">
             <a href="mailto:seraveea@connect.hkust-gz.edu.cn">seraveea@connect.hkust-gz.edu.cn</a>
             <span>+86 199-0492-8035</span>
-            <span>Guangzhou, China</span>
-            <a href="zh.html">中文</a>
+            <span>广州，中国</span>
+            <a href="index.html">English</a>
           </div>
         </div>
       </div>
@@ -391,31 +371,25 @@
 
   <nav>
     <div class="container">
-      <a href="#about">About</a>
-      <a href="#publications">Publications</a>
-      <a href="#education">Education</a>
-      <a href="#research">Research</a>
-      <a href="#internship">Internship</a>
-      <a href="#awards">Awards</a>
+      <a href="#publications">研究论文</a>
+      <a href="#education">教育经历</a>
+      <a href="#research">研究经历</a>
+      <a href="#internship">实习经历</a>
+      <a href="#awards">所获奖项</a>
     </div>
   </nav>
 
   <main class="container">
 
-    <section id="about" class="intro">
-      <h2>About</h2>
-      <p>I am a PhD candidate supervised by <a href="https://cse.hkust.edu.hk/~leichen/">Lei Chen</a>. My research interests include agentic LLMs, multimodal knowledge base retrieval and question answering, as well as finance-related RAG and time series forecasting. Our financial-AI demo has won multiple awards.</p>
-    </section>
-
     <section id="publications">
-      <h2>First-Author Research</h2>
+      <h2>第一作者研究工作</h2>
 
       <article class="pub">
         <span class="pub-badge">ICML 2026</span>
         <p class="pub-title"><a href="https://icml.cc/virtual/2026/poster/66324">Beyond Single-View Indexing: Structure-Aware Multi-View Retrieval for Knowledge-Based VQA</a></p>
         <ul>
-          <li>Proposed a coarse-grained retrieval framework for knowledge-based visual question answering, using manifold diffusion and graph-similarity-based deduplication to leverage complementary information across knowledge base modalities and improve retrieval accuracy.</li>
-          <li>Established the ideal upper bound of single-vector retrieval in multimodal settings; experiments show our method reaches 80–90% of this bound. Compared to SOTA single-vector coarse-grained retrieval, we improve recall by over 10% while adding less than 1% retrieval time.</li>
+          <li>提出面向知识型视觉问答任务的粗粒度检索框架，使用流型扩散和基于图相似度的去冗余方法，充分利用知识库模态互补信息提高检索精度。</li>
+          <li>证明了单向量检索在多模态场景下的理想上界，实验证明所提出方法可以达到该理想上界的 80%～90%。相较于 SOTA 的单向量粗粒度检索范式，在仅增加 1% 不到的检索时间的同时提升了 10% 以上的召回率。</li>
         </ul>
       </article>
 
@@ -423,146 +397,146 @@
         <span class="pub-badge">arXiv Preprint</span>
         <p class="pub-title"><a href="https://arxiv.org/abs/2509.10461">Momentum-integrated Multi-task Stock Recommendation with Converge-based Optimization</a></p>
         <ul>
-          <li>Addressed short-term noise and overfitting in stock prediction with a multi-task training framework using momentum labels and overfitting-aware gradient allocation.</li>
-          <li>On A-share and US stock markets, the proposed method improves RNN prediction performance and significantly mitigates overfitting during training.</li>
+          <li>针对股票预测中容易受到短期噪声和过拟合影响的问题，提出多任务训练框架，使用动量标签和过拟合感知的梯度分配算法，提升股票预测模型表现。</li>
+          <li>在 A 股以及美股市场上，提出的训练方法可以有效提高 RNN 模型的最终预测表现，同时显著缓解训练中出现的过拟合现象。</li>
         </ul>
       </article>
 
       <article class="pub">
         <span class="pub-badge review">Under Review</span>
-        <p class="pub-title">Work I — Systematic Study of Semantic Uncertainty and Hallucination Detection</p>
+        <p class="pub-title">Work I — 语义不确定度与幻觉检测系统性研究</p>
         <ul>
-          <li>Proposed a systematic framework for semantic uncertainty methods in LLM hallucination detection, covering 19 datasets, 17 semantic uncertainty computation methods, and experiments with 13 LLMs for generation and hallucination detection.</li>
-          <li>Found that current semantic uncertainty methods still struggle on complex semantic tasks such as summarization and translation. Explored blind spots in black-box LLM hallucination detection and constructed blind-spot datasets. Discovered a scaling law in LLM hallucination via uncertainty quantification: stronger models exhibit greater overconfidence.</li>
+          <li>针对当前大模型幻觉检测研究中的语义不确定度方法，提出系统性研究框架，包含 19 个数据集和 17 种语义不确定度计算方法，使用 13 个大模型进行了生成以及幻觉检测实验。</li>
+          <li>实验发现当前语义不确定度方法在摘要以及翻译等复杂语义任务上仍有局限。探讨黑盒大模型的幻觉检测盲区并构造盲区数据集。通过不确定性量化发现大模型幻觉上的 scaling law 现象，越强的大模型越表现出盲目自信。</li>
         </ul>
       </article>
 
       <article class="pub">
         <span class="pub-badge review">Under Review</span>
-        <p class="pub-title">Work II — RAG Uncertainty Measurement and Context Refinement</p>
+        <p class="pub-title">Work II — RAG 不确定度测量与上下文改进</p>
         <ul>
-          <li>Addressed RAG frameworks that rely solely on LLMs to judge context relevance by proposing RAG uncertainty measurement using perturbed data and semantic matrices, along with a two-stage RAG context refinement framework.</li>
-          <li>Experiments show strong correlation between the proposed uncertainty measure and RAG answer accuracy; the refinement method significantly improves RAG context quality.</li>
+          <li>针对当前 RAG 框架仅依赖于大模型自身判定上下文语义相关性的局限，提出使用扰动数据和基于语义矩阵的 RAG 不确定度测量方法，并基于该方法提出两段式 RAG 上下文改进回答框架。</li>
+          <li>实验证明提出的不确定度测量方法和 RAG 回答准确度强相关，同时提出的改进方法可以明显提高 RAG 上下文质量。</li>
         </ul>
       </article>
 
       <article class="pub">
         <span class="pub-badge review">Under Review</span>
-        <p class="pub-title">Work III — Financial Investment RAG Framework</p>
+        <p class="pub-title">Work III — 金融投资 RAG 框架</p>
         <ul>
-          <li>LLMs show conservative biases on finance and investment questions, limiting actionable advice for investors. Proposed a knowledge-graph and step-wise reasoning RAG framework with time-semantics hybrid weight sampling and decoupling final recommendations from the LLM to improve stock prediction performance.</li>
+          <li>当前大模型在金融与投资相关问题上呈现出明显的保守态度，投资者无法从这些固有偏见中获得有效投资建议。提出基于知识图谱和分步推理的 RAG 框架，通过时间-语义混合权重采样和将最终建议与大模型隔离的方法提升股票预测任务上的表现。</li>
         </ul>
       </article>
     </section>
 
     <section id="education">
-      <h2>Education</h2>
+      <h2>教育经历</h2>
 
       <div class="entry">
         <div class="entry-header">
-          <span class="entry-title">PhD · Data Science and Analytics</span>
-          <span class="entry-date">Mar 2023 – May 2026</span>
+          <span class="entry-title">博士研究生 · 数据科学与分析学域</span>
+          <span class="entry-date">2023.03 – 2026.05</span>
         </div>
-        <p class="entry-org">The Hong Kong University of Science and Technology (Guangzhou) · Information Hub</p>
+        <p class="entry-org">香港科技大学（广州）· 信息枢纽</p>
         <ul>
-          <li>Expected graduation: 2027</li>
+          <li>预计毕业时间：2027</li>
         </ul>
       </div>
 
       <div class="entry">
         <div class="entry-header">
-          <span class="entry-title">M.S. · Electrical and Computer Engineering</span>
-          <span class="entry-date">Sep 2019 – Jan 2021</span>
+          <span class="entry-title">科学硕士 · 电子计算机工程</span>
+          <span class="entry-date">2019.09 – 2021.01</span>
         </div>
-        <p class="entry-org">Georgia Institute of Technology · School of Electrical and Computer Engineering</p>
+        <p class="entry-org">美国佐治亚理工学院 · 电子与计算机工程系</p>
         <span class="gpa">GPA 4.0 / 4.0</span>
       </div>
 
       <div class="entry">
         <div class="entry-header">
-          <span class="entry-title">B.Eng. · Automation</span>
-          <span class="entry-date">Sep 2015 – Jul 2019</span>
+          <span class="entry-title">工学学士 · 自动化</span>
+          <span class="entry-date">2015.09 – 2019.07</span>
         </div>
-        <p class="entry-org">Tianjin University · School of Electrical and Information Engineering</p>
+        <p class="entry-org">天津大学 · 电气自动化与信息工程学院</p>
         <span class="gpa">GPA 3.58 / 4.0</span>
       </div>
     </section>
 
     <section id="research">
-      <h2>Research Experience</h2>
+      <h2>研究经历</h2>
 
       <div class="entry">
         <div class="entry-header">
-          <span class="entry-title">Research Assistant</span>
-          <span class="entry-date">Jun 2021 – Jun 2022</span>
+          <span class="entry-title">研究助理</span>
+          <span class="entry-date">2021.06 – 2022.06</span>
         </div>
-        <p class="entry-org">The Hong Kong University of Science and Technology · Big Data Institute</p>
-        <p class="entry-supervisor">Supervised by <strong><a href="https://cse.hkust.edu.hk/~leichen/">Lei Chen</a></strong>, Head and Chair Professor, Department of Computer Science and Engineering, HKUST</p>
+        <p class="entry-org">香港科技大学 · 大数据研究所</p>
+        <p class="entry-supervisor">Supervised by <strong><a href="https://cse.hkust.edu.hk/~leichen/">陈雷</a></strong>，香港科技大学计算机科学系首席教授</p>
         <ul>
-          <li>Conducted data analysis, graph database construction, and implementation of AI-related algorithms.</li>
-          <li>Led the engineering components of collaborative projects between the Big Data Institute and Kaisa, PetroChina, and Zhipu AI.</li>
+          <li>进行数据分析、图数据库构建以及人工智能相关算法的实现。</li>
+          <li>工作期主要负责大数据研究所和佳兆业、中石油、智谱之间的横向项目工程部分。</li>
         </ul>
       </div>
 
       <div class="entry">
         <div class="entry-header">
-          <span class="entry-title">Research Assistant</span>
-          <span class="entry-date">Jun 2020 – Feb 2021</span>
+          <span class="entry-title">研究助理</span>
+          <span class="entry-date">2020.06 – 2021.02</span>
         </div>
-        <p class="entry-org">Georgia Institute of Technology · Social and Language Technologies (SALT) Lab</p>
-        <p class="entry-supervisor">Supervised by <strong><a href="https://cs.stanford.edu/~diyiy/">Diyi Yang</a></strong>, Assistant Professor, Department of Computer Science, Stanford University</p>
+        <p class="entry-org">美国佐治亚理工学院 · 社会和语言技术实验室（SALT）</p>
+        <p class="entry-supervisor">Supervised by <strong><a href="https://cs.stanford.edu/~diyiy/">Diyi Yang</a></strong>，现任斯坦福大学计算机科学系助理教授</p>
         <ul>
-          <li>Conducted conversational data analysis and implemented algorithms related to computational psycholinguistics.</li>
-          <li>Responsible for data analysis in experiments and the 7Cups collaborative project.</li>
+          <li>进行对话数据分析以及语言心理学相关算法的实现。</li>
+          <li>负责实验和 7Cups 横向项目的数据分析部分。</li>
         </ul>
       </div>
 
       <div class="entry">
         <div class="entry-header">
-          <span class="entry-title">Research Assistant</span>
-          <span class="entry-date">May 2018 – May 2019</span>
+          <span class="entry-title">研究助理</span>
+          <span class="entry-date">2018.05 – 2019.05</span>
         </div>
-        <p class="entry-org">Tianjin University · Institute of Robotics and Autonomous Systems</p>
-        <p class="entry-supervisor">Supervised by <strong><a href="http://tiei2014.tju.edu.cn/info/1081/2274.htm">Ming Zeng</a></strong>, Associate Professor and Deputy Director, Institute of Robotics and Autonomous Systems, Tianjin University</p>
+        <p class="entry-org">天津大学 · 机器人与自主系统研究所</p>
+        <p class="entry-supervisor">Supervised by <strong><a href="http://tiei2014.tju.edu.cn/info/1081/2274.htm">曾明</a></strong>，天津大学自动化系副主任，机器人与自主系统研究所副所长，副教授</p>
         <ul>
-          <li>Collected and annotated image data, trained image classification models, and developed the software components of an embodied intelligent waste-sorting system.</li>
-          <li>The automated waste-sorting system is now deployed for public interaction at the Tianjin University History Museum.</li>
+          <li>采集、标注图像数据并进行图像分类算法训练，以及负责具身智能垃圾分类系统的软件部分研发。</li>
+          <li>目前该自动垃圾分类系统已于天津大学校史馆投入体验。</li>
         </ul>
       </div>
     </section>
 
     <section id="internship">
-      <h2>Internship</h2>
+      <h2>实习经历</h2>
 
       <div class="entry">
         <div class="entry-header">
-          <span class="entry-title">Teaching Assistant</span>
-          <span class="entry-date">May 2020 – Aug 2020</span>
+          <span class="entry-title">教学助理</span>
+          <span class="entry-date">2020.05 – 2020.08</span>
         </div>
-        <p class="entry-org">Intelligence Racing (now Hitch Open), United States</p>
-        <p class="entry-supervisor">Supervised by <strong><a href="https://people.eecs.berkeley.edu/~yang/">Allen Yang</a></strong>, Executive Director, Department of Electrical Engineering and Computer Sciences, UC Berkeley</p>
+        <p class="entry-org">美国 Intelligence Racing（现 Hitch Open）</p>
+        <p class="entry-supervisor">Supervised by <strong><a href="https://people.eecs.berkeley.edu/~yang/">Allen Yang</a></strong>，加州伯克利电子与计算机科学系执行董事</p>
         <ul>
-          <li>Provided algorithm training for US high school teams competing in autonomous FE racing.</li>
+          <li>负责为无人 FE 赛车美国高中组别比赛队伍进行算法培训。</li>
         </ul>
       </div>
     </section>
 
     <section id="awards">
-      <h2>Awards During PhD</h2>
+      <h2>博士期间所获奖项</h2>
 
       <div class="award">
-        <span class="award-date">Mar 2026</span>
-        <span class="award-text"><strong>Geneva International Invention Exhibition</strong> — Gold Medal with Jury Congratulations<br><span style="color:var(--text-muted);font-size:0.8125rem;">Project: No-code interactive automated quantitative trading system</span></span>
+        <span class="award-date">2026.03</span>
+        <span class="award-text"><strong>日内瓦国际发明展</strong> — 组委会嘉许金奖<br><span style="color:var(--text-muted);font-size:0.8125rem;">发明内容：灵操盘 — 无代码交互的自动量化交易系统</span></span>
       </div>
 
       <div class="award">
-        <span class="award-date">Dec 2025</span>
-        <span class="award-text"><strong>Shenzhen International Fintech Competition · 1st Place, AI Track</strong> (Team prize: ¥100,000)<br><span style="color:var(--text-muted);font-size:0.8125rem;">Project: No-code interactive automated quantitative trading system</span></span>
+        <span class="award-date">2025.12</span>
+        <span class="award-text"><strong>深圳国际金融科技大赛 · 人工智能赛道第一名</strong>（团队奖金 10 万元）<br><span style="color:var(--text-muted);font-size:0.8125rem;">参赛题目：灵操盘 — 无代码交互的自动量化交易系统</span></span>
       </div>
 
       <div class="award">
-        <span class="award-date">Jul 2023</span>
-        <span class="award-text"><strong>Hong Kong Fintech Olympiad · Silver Award</strong> (Team prize: HK$50,000)</span>
+        <span class="award-date">2023.07</span>
+        <span class="award-text"><strong>香港 Fintech Olympiad 竞赛 · 银奖</strong>（团队奖金 5 万港币）</span>
       </div>
     </section>
 
@@ -572,9 +546,9 @@
     <div class="links">
       <a href="https://www.linkedin.com/in/hao-wang-3b2a301a1/">LinkedIn</a>
       <a href="mailto:seraveea@connect.hkust-gz.edu.cn">Email</a>
-      <a href="zh.html">中文</a>
+      <a href="index.html">English</a>
     </div>
-    <p>© 2026 Hao Wang</p>
+    <p>© 2026 王昊 · Hao Wang</p>
   </footer>
 
 </body>
